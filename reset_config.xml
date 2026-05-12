@@ -1,3 +1,1 @@
-<action xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-rpc">
-  <DeviceResetX/>
-</action>
+<DeviceResetX xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-rpc"/>

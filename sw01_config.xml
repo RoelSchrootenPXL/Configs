@@ -4,7 +4,7 @@
     
     <ip>
       <name-server>
-        <name-server-list>10.199.64.66</name-server-list>
+        <server-list>10.199.64.66</server-list>
       </name-server>
       <default-gateway>172.16.3.1</default-gateway>
     </ip>

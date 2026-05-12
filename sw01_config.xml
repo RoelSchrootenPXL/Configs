@@ -47,7 +47,7 @@
           </access>
         </switchport>
         <spanning-tree xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree">
-          <portfast>true</portfast>
+          <portfast/>
           <bpduguard>
             <enable/>
           </bpduguard>

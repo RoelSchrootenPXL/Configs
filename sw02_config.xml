@@ -2,89 +2,44 @@
   <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
     <hostname>LAB-RA03-A01-SW02</hostname>
 
-    <ip>
-      <name-server>
-        <no-vrf>10.199.64.66</no-vrf>
-      </name-server>
-      <default-gateway>172.16.3.1</default-gateway>
-    </ip>
-
-    <ntp>
-      <server xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ntp">
-        <server-list>
-          <ip-address>10.199.64.66</ip-address>
-        </server-list>
-      </server>
-    </ntp>
-
-    <spanning-tree>
-      <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree">rapid-pvst</mode>
-    </spanning-tree>
-
     <vlan>
       <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan"><id>10</id><name>Management</name></vlan-list>
-      <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan"><id>20</id><name>VM-Hosts</name></vlan-list>
-      <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan"><id>30</id><name>Appliance-Servers</name></vlan-list>
       <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan"><id>40</id><name>Data-Users</name></vlan-list>
-      <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan"><id>99</id><name>Native</name></vlan-list>
     </vlan>
 
     <interface>
       <GigabitEthernet>
         <name>1/0/1</name>
-        <description>Trunk to LAB-RA03-C01-R02</description>
+        <description>Link to R02</description>
         <switchport>
           <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><trunk/></mode>
           <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
-            <allowed><vlan><vlans>10,20,30,40,99</vlans></vlan></allowed>
+            <allowed><vlan><vlans>10,40</vlans></vlan></allowed>
           </trunk>
-          <nonegotiate xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"/>
         </switchport>
       </GigabitEthernet>
 
       <GigabitEthernet>
-        <name>1/0/3</name>
-        <description>L2 LAG to LAB-RA03-A01-SW01</description>
-        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
-          <number>1</number>
-          <mode>active</mode>
-        </channel-group>
+        <name>1/0/2</name>
+        <description>Data Link to SW01</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><trunk/></mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed><vlan><vlans>10,40</vlans></vlan></allowed>
+          </trunk>
+        </switchport>
       </GigabitEthernet>
 
       <GigabitEthernet>
-        <name>1/0/4</name>
-        <description>L2 LAG to LAB-RA03-A01-SW01</description>
-        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
-          <number>1</number>
-          <mode>active</mode>
-        </channel-group>
-      </GigabitEthernet>
-
-      <GigabitEthernet>
-        <name>1/0/24</name>
-        <description>Management Access - Laptop</description>
+        <name>1/0/23</name>
+        <description>Management Bridge to SW01</description>
         <switchport>
           <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><access/></mode>
           <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
             <vlan><vlan>10</vlan></vlan>
           </access>
         </switchport>
-        <spanning-tree xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree">
-          <portfast/>
-        </spanning-tree>
       </GigabitEthernet>
-
-      <Port-channel>
-        <name>1</name>
-        <description>L2 EtherChannel to LAB-RA03-A01-SW01</description>
-        <switchport>
-          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><trunk/></mode>
-          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
-            <allowed><vlan><vlans>10,20,30,40,99</vlans></vlan></allowed>
-          </trunk>
-          <nonegotiate xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"/>
-        </switchport>
-      </Port-channel>
 
       <Vlan>
         <name>10</name>

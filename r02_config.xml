@@ -1,0 +1,43 @@
+<config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <hostname>LAB-RA03-C01-R02</hostname>
+    
+    <interface>
+      <GigabitEthernet>
+        <name>0</name>
+        <description>Uplink to Patch Panel 2</description>
+        <ip>
+          <address>
+            <primary>
+              <address>10.10.10.5</address>
+              <mask>255.255.255.252</mask>
+            </primary>
+          </address>
+        </ip>
+      </GigabitEthernet>
+
+      <GigabitEthernet>
+        <name>1</name>
+        <description>Trunk to SW02</description>
+        <no-ip-address/>
+        <negotiation><auto>true</auto></negotiation>
+      </GigabitEthernet>
+
+      <GigabitEthernet>
+        <name>1.10</name>
+        <description>Management Gateway</description>
+        <encapsulation>
+          <dot1Q><vlan-id>10</vlan-id></dot1Q>
+        </encapsulation>
+        <ip>
+          <address>
+            <primary>
+              <address>172.16.3.2</address>
+              <mask>255.255.255.240</mask>
+            </primary>
+          </address>
+        </ip>
+      </GigabitEthernet>
+    </interface>
+  </native>
+</config>

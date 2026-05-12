@@ -16,13 +16,6 @@
       </GigabitEthernet>
 
       <GigabitEthernet>
-        <name>0/0/1</name>
-        <description>Trunk to SW02</description>
-        <no-ip-address/>
-        <negotiation><auto>true</auto></negotiation>
-      </GigabitEthernet>
-
-      <GigabitEthernet>
         <name>0/0/1.10</name>
         <description>Management Gateway</description>
         <encapsulation>

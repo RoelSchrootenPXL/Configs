@@ -77,16 +77,15 @@
 
       <GigabitEthernet>
         <name>1/0/24</name>
-        <description>Laptop access port</description>
+        <description>Management Access - Laptop</description>
         <switchport>
           <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><access/></mode>
           <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
-            <vlan><vlan>40</vlan></vlan>
+            <vlan><vlan>10</vlan></vlan>
           </access>
         </switchport>
         <spanning-tree xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree">
           <portfast/>
-          <bpduguard><enable/></bpduguard>
         </spanning-tree>
       </GigabitEthernet>
 

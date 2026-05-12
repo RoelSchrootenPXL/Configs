@@ -19,17 +19,17 @@
         <name>1/0/1</name>
         <description>Trunk to LAB-RA03-C01-R01</description>
         <switchport>
-          <mode>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
             <trunk/>
           </mode>
-          <trunk>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
             <allowed>
               <vlan>
                 <vlans>10,20,30,40,99</vlans>
               </vlan>
             </allowed>
           </trunk>
-          <nonegotiate/>
+          <nonegotiate xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"/>
         </switchport>
       </GigabitEthernet>
 
@@ -37,10 +37,10 @@
         <name>1/0/2</name>
         <description>Data-Users access port</description>
         <switchport>
-          <mode>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
             <access/>
           </mode>
-          <access>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
             <vlan>
               <vlan>40</vlan>
             </vlan>

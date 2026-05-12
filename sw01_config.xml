@@ -1,21 +1,6 @@
 <config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
   <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
     <hostname>LAB-RA03-A01-SW01</hostname>
-    
-    <ip>
-      <name-server>
-        <server-list>10.199.64.66</server-list>
-      </name-server>
-      <default-gateway>172.16.3.1</default-gateway>
-    </ip>
-
-    <ntp>
-      <server xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ntp">
-        <server-list>
-          <ip-address>10.199.64.66</ip-address>
-        </server-list>
-      </server>
-    </ntp>
 
     <spanning-tree>
       <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree">

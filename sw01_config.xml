@@ -1,69 +1,40 @@
 <config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
   <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
-    <hostname>LAB-RA03-A01-SW01</hostname>
-    
-    <vlan>
-      <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan"><id>10</id><name>Management</name></vlan-list>
-      <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan"><id>40</id><name>Data-Users</name></vlan-list>
-    </vlan>
-
+    <hostname>LAB-RA03-C01-R01</hostname>
     <interface>
       <GigabitEthernet>
-        <name>1/0/1</name>
-        <description>Link to R01</description>
-        <switchport>
-          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><trunk/></mode>
-          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
-            <allowed><vlan><vlans>10,40</vlans></vlan></allowed>
-          </trunk>
-        </switchport>
-      </GigabitEthernet>
-
-      <GigabitEthernet>
-        <name>1/0/2</name>
-        <description>Data Link to SW02</description>
-        <switchport>
-          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><trunk/></mode>
-          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
-            <allowed><vlan><vlans>10,40</vlans></vlan></allowed>
-          </trunk>
-        </switchport>
-      </GigabitEthernet>
-
-      <GigabitEthernet>
-        <name>1/0/23</name>
-        <description>Management Bridge to SW02</description>
-        <switchport>
-          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><access/></mode>
-          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
-            <vlan><vlan>10</vlan></vlan>
-          </access>
-        </switchport>
-      </GigabitEthernet>
-
-      <GigabitEthernet>
-        <name>1/0/24</name>
-        <description>Laptop Management Access</description>
-        <switchport>
-          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"><access/></mode>
-          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
-            <vlan><vlan>10</vlan></vlan>
-          </access>
-        </switchport>
-        <spanning-tree xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree"><portfast/></spanning-tree>
-      </GigabitEthernet>
-
-      <Vlan>
-        <name>10</name>
+        <name>0</name>
+        <description>Uplink to Patch Panel 1</description>
         <ip>
           <address>
             <primary>
-              <address>172.16.3.5</address>
+              <address>10.10.10.1</address> <mask>255.255.255.252</mask>
+            </primary>
+          </address>
+        </ip>
+      </GigabitEthernet>
+
+      <GigabitEthernet>
+        <name>1</name>
+        <no-ip-address/>
+        <negotiation><auto>true</auto></negotiation>
+      </GigabitEthernet>
+
+      <GigabitEthernet>
+        <name>1.10</name>
+        <description>Gateway for Management</description>
+        <encapsulation>
+          <dot1Q><vlan-id>10</vlan-id></dot1Q>
+        </encapsulation>
+        <ip>
+          <address>
+            <primary>
+              <address>172.16.3.1</address>
               <mask>255.255.255.240</mask>
             </primary>
           </address>
         </ip>
-      </Vlan>
+      </GigabitEthernet>
     </interface>
   </native>
 </config>
